@@ -1,36 +1,79 @@
-# Data Analysis
+# Engine Oil & Palm Oil Analysis
 
-This repository contain the data analysis of two project. It is splitted in two folders, Task_1 and Task_2. The details for each task are in the respective folder. Task_3 is about the analysis of words or NLP problem related tasks in a paragraph. Details for the respective problem is also in the respective folder.
+A collection of three independent data analysis projects covering statistical analysis, time-series analysis, and natural language processing (NLP). Each task is self-contained with its own dataset, Jupyter notebook, and documentation.
 
-## Dependencies
+## Projects at a Glance
 
-If you do not have **Anaconda/miniconda** on your machine, download **miniconda** from [here](https://docs.conda.io/en/latest/miniconda.html).
+| Task | Topic | Techniques | Dataset |
+|------|-------|------------|---------|
+| [Task 1](Task_1/README.md) | Engine Oil Additive Formulations | EDA, ANOVA, PCA, K-Means, DBSCAN | `ingredient.csv` (214 rows, 9 additives) |
+| [Task 2](Task_2/README.md) | Palm Oil FFB Yield Analysis | Correlation, Seasonal Decomposition, Time-Series | `palm_ffb.csv` (130 rows, 2008–2018) |
+| [Task 3](Task_3/README.md) | NLP Word Probability Analysis | Text Cleaning, Word Frequency, Probability Distribution | `text.txt` (21 lines) |
 
-If you already have Anaconda/miniconda, you can create a new virtual environment based on the given environment file, `environment.yml` and name your environment. The environment file will automatically download all the necessary packages into the newly created environment. 
-```sh
-conda env create -n <REPLACE-NAME> -f environment.yml
+## Repository Structure
+
+```
+Engine-Oil-and-Palm-Oil-Analysis/
+├── environment.yml        # Conda environment (Python 3.9.5)
+├── Task_1/
+│   ├── README.md          # Problem statement & findings
+│   ├── task_1.ipynb       # Analysis notebook
+│   └── ingredient.csv     # Petrol additive formulations dataset
+├── Task_2/
+│   ├── README.md          # Problem statement & findings
+│   ├── task_2.ipynb       # Analysis notebook
+│   └── palm_ffb.csv       # Monthly palm oil yield dataset
+└── Task_3/
+    ├── README.md          # Problem statement & findings
+    ├── task_3.ipynb       # Analysis notebook
+    ├── text.txt           # Source document for NLP analysis
+    └── distribution.csv   # Generated word frequency output
 ```
 
-Go into your newly created environment by
-```sh
-conda activate <REPLACE-NAME>
-```
+## Setup
 
-Deactivate the newly created environment using 
+### Prerequisites
+
+You need **Anaconda** or **Miniconda** installed. If you don't have it, download Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html).
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/farisk263/Engine-Oil-and-Palm-Oil-Analysis.git
+   cd Engine-Oil-and-Palm-Oil-Analysis
+   ```
+
+2. Create and activate the conda environment:
+   ```sh
+   conda env create -n oil-analysis -f environment.yml
+   conda activate oil-analysis
+   ```
+
+3. Launch Jupyter Notebook:
+   ```sh
+   jupyter notebook
+   ```
+
+4. Open the notebook for the task you want to explore (e.g., `Task_1/task_1.ipynb`).
+
+To deactivate the environment when done:
 ```sh
 conda deactivate
 ```
 
-### Getting started
-In Anaconda Prompt (Windows systems) or your system terminal (non-Windows systems), launch Jupyter Notebook by 
-```sh
-jupyter notebook
-```
+## Key Findings Summary
 
-and go to the directory where you have downloaded this repository.
+**Task 1 — Engine Oil Additives:**
+- Additives A & G are strongly positively correlated (r = 0.81); A & E are negatively correlated (r = −0.54).
+- PCA reduced 9 dimensions to 2 principal components (50.68% variance explained).
+- K-Means identified **3 distinct formulations**; DBSCAN detected **4 clusters** (more robust to outliers).
 
+**Task 2 — Palm Oil FFB Yield:**
+- Precipitation is the strongest external driver of FFB yield (r = 0.29).
+- FFB yield peaks in **October** and is lowest in **February** each year.
+- A significant yield drop occurred in **2016** due to the El Niño weather phenomenon.
 
-OR directly open Jupyter notebook server at the PATH with the downloaded repository by 
-```sh
-jupyter notebook <YOUR-PATH-DOWNLOADED-REPOSITORY>
-```
+**Task 3 — NLP Word Probability:**
+- The word *"data"* appears with the highest frequency in the source document.
+- Probability distribution of word occurrences was computed per line and exported to `distribution.csv`.
